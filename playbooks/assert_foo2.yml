@@ -1,2 +1,4 @@
 ---
 - assert: { that: host_vars_foo1 is not defined }
+  tags:
+    - assert

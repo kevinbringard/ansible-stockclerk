@@ -6,6 +6,7 @@
     playbook_var: True
   roles:
     - role: sc
+    - role: other
   tasks:
     - include: assert.yml
 

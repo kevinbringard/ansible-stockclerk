@@ -6,7 +6,7 @@ A  POC to validate Ansible inventory.
 Usage
 -----
 
-    $ ansible-playbook -i inventory/az/az.ini playbooks/playbook.yml
+    $ ansible-playbook -v -i inventory/az/az.ini playbooks/playbook.yml --tags assert
 
 License
 -------

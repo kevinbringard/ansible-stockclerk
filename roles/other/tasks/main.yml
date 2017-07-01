@@ -2,8 +2,8 @@
 - name: Dummy task
   command: /usr/bin/true
 
-- name: Dummy task should not execute
+- name: Undefined variables are not reported
   copy:
     content: |
-      foo
+      "{{ invalid }}"
     dest: /etc/foo.txt

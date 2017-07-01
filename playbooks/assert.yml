@@ -1,15 +1,41 @@
 ---
+# Inventory group vars vars
+
 - assert: { that: group_vars_all_var is defined }
+  tags:
+    - assert
 
 - assert:
     that:
       group_vars_all_bool | is_bool
     msg: "'group_vars_all_bool' must be of type bool"
+  tags:
+    - assert
+
+# Inventory child group vars vars
 
 - assert: { that: group_vars_child_var is defined }
+  tags:
+    - assert
+
+# Playbook vars
 
 - assert: { that: playbook_var is defined }
+  tags:
+    - assert
+
+# Role vars from sc role
 
 - assert: { that: role_defaults_sc_var is defined }
+  tags:
+    - assert
 
 - assert: { that: role_vars_sc_var is defined }
+  tags:
+    - assert
+
+# Role vars from other role
+
+- assert: { that: role_defaults_other_var is defined }
+  tags:
+    - assert

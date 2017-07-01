@@ -1,2 +1,6 @@
 ---
+# Inventory host vars vars
+
 - assert: { that: host_vars_foo1_var is defined }
+  tags:
+    - assert
