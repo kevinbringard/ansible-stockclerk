@@ -1,0 +1,15 @@
+---
+- assert: { that: group_vars_all_var is defined }
+
+- assert:
+    that:
+      group_vars_all_bool | is_bool
+    msg: "'group_vars_all_bool' must be of type bool"
+
+- assert: { that: group_vars_child_var is defined }
+
+- assert: { that: playbook_var is defined }
+
+- assert: { that: role_defaults_sc_var is defined }
+
+- assert: { that: role_vars_sc_var is defined }

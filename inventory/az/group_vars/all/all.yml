@@ -1,0 +1,3 @@
+---
+group_vars_all_var: True
+group_vars_all_bool: True

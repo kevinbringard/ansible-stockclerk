@@ -1,0 +1,22 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: False
+  vars:
+    playbook_var: True
+  roles:
+    - role: sc
+  tasks:
+    - include: assert.yml
+
+- hosts: foo1.example.com
+  connection: local
+  gather_facts: False
+  tasks:
+    - include: assert_foo1.yml
+
+- hosts: foo2.example.com
+  connection: local
+  gather_facts: False
+  tasks:
+    - include: assert_foo2.yml
