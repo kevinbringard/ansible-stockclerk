@@ -1,0 +1,13 @@
+---
+groupvars:
+  all:
+    role_defaults_other_var:
+      type: bool
+      version_added: 4.1.4
+      ops_changeable: True
+      customer_changeable: False
+      doc:
+      required: False
+      tags:
+        - metacloud
+        - nova_common

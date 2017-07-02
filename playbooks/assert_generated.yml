@@ -1,0 +1,6 @@
+---
+- assert:
+    msg: '"role_defaults_other_var" must be of type bool'
+    that: role_defaults_other_var | is_bool
+  tags:
+    - assert

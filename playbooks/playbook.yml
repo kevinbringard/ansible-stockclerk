@@ -9,6 +9,7 @@
     - role: other
   tasks:
     - include: assert.yml
+    - include: assert_generated.yml
 
 - hosts: foo1.example.com
   connection: local
