@@ -16,7 +16,7 @@ groupvars:
       version_added: 4.1.4
       ops_changeable: True
       customer_changeble: False
-      doc: 
+      doc:
       required: False
       tags:
         - metacloud
@@ -27,7 +27,7 @@ groupvars:
           version_added: 4.1.4
           ops_changeable: True
           customer_changeable: False
-          doc: 
+          doc:
           required: False
           tags:
             - metacloud
@@ -36,7 +36,7 @@ groupvars:
           type: int
           version_added: 4.1.4
           ops_changeable: False
-          doc: 
+          doc:
           required: False
           tags:
             - metacloud
@@ -46,7 +46,7 @@ groupvars:
       version_added: 4.1.4
       ops_changeable: True
       customer_changeable: False
-      doc: 
+      doc:
       required: False
       tags:
         - metacloud
@@ -56,7 +56,7 @@ groupvars:
       version_added: 4.1.4
       ops_changeable: True
       customer_changeable: False
-      doc: 
+      doc:
       required: False
       tags:
         - metacloud
@@ -66,7 +66,7 @@ groupvars:
       version_added: 4.1.4
       ops_changeable: True
       customer_changeable: False
-      doc: 
+      doc:
       required: False
       tags:
         - metacloud

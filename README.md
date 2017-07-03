@@ -13,7 +13,7 @@ This process is unable to identify undefined variables referenced throughout.
 Usage
 -----
 
-    $ ansible-playbook -v -i inventory/az/az.ini playbooks/playbook.yml --tags assert
+    $ ansible-playbook -v -i inventory/az/az.ini --tags assert ~/git/ansible-systems/playbooks/openstack/metapod.yml
 
 License
 -------

@@ -19,6 +19,7 @@
 #  DEALINGS IN THE SOFTWARE.
 
 import contextlib
+import os
 
 import yaml
 
@@ -137,9 +138,13 @@ def _number_assert(var):
     }
 
 
-model_dict = safe_load_file('model/model.yml')
+model_file = os.path.expanduser(
+    '~/git/ansible-systems/inventory/fusion/metapod/model/metapod.yml')
+model_dict = safe_load_file(model_file)
 data = [
     get_assert(var, var_data)
     for var, var_data in model_dict['groupvars']['all'].items()
 ]
-write_file('playbooks/assert_generated.yml', safe_dump(data))
+assert_file = os.path.expanduser(
+    '~/git/ansible-systems/playbooks/openstack/metapod/assert_generated.yml')
+write_file(assert_file, safe_dump(data))
