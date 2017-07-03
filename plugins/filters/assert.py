@@ -30,9 +30,36 @@ def is_true(var):
 def is_false(var):
     return var in ['no', 'off', '0', 'false', 0, 'False', False]
 
+def is_dict(var):
+    if isinstance(var, dict):
+        return True
+    else:
+        return False
+
+def is_list(var):
+    if isinstance(var, list):
+        return True
+    else:
+        return False
+
+def is_set(var):
+    if isinstance(var, set):
+        return True
+    else:
+        return False
+
+def is_number(var):
+    if isinstance(var, (int, long, float, complex)):
+        return True
+    else:
+        return False
 
 class FilterModule(object):
     def filters(self):
         return {
             'is_bool': is_bool,
+            'is_dict': is_dict,
+            'is_list': is_list,
+            'is_set': is_set,
+            'is_number': is_number,
         }
