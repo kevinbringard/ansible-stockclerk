@@ -1,2 +1,10 @@
 ---
 role_defaults_other_var: True
+role_defaults_other_hash_var:
+  role: 'other'
+  number: 4
+role_defaults_other_list_var:
+  - item1
+  - item2
+role_defaults_other_string_var: 'somestring'
+role_defaults_other_int_var: 4

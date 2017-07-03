@@ -54,6 +54,12 @@ def is_number(var):
     else:
         return False
 
+def is_string(var):
+    if isinstance(var, basestring):
+        return True
+    else:
+        return False
+
 class FilterModule(object):
     def filters(self):
         return {
@@ -62,4 +68,5 @@ class FilterModule(object):
             'is_list': is_list,
             'is_set': is_set,
             'is_number': is_number,
+            'is_string': is_string,
         }
