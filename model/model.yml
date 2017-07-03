@@ -11,3 +11,63 @@ groupvars:
       tags:
         - metacloud
         - nova_common
+    role_defaults_other_hash_var:
+      type: map
+      version_added: 4.1.4
+      ops_changeable: True
+      customer_changeble: False
+      doc: 
+      required: False
+      tags:
+        - metacloud
+        - nova_common
+      mapping:
+        role:
+          type: str
+          version_added: 4.1.4
+          ops_changeable: True
+          customer_changeable: False
+          doc: 
+          required: False
+          tags:
+            - metacloud
+            - nova_common
+        number:
+          type: int
+          version_added: 4.1.4
+          ops_changeable: False
+          doc: 
+          required: False
+          tags:
+            - metacloud
+            - nova_common
+    role_defaults_other_list_var:
+      type: seq
+      version_added: 4.1.4
+      ops_changeable: True
+      customer_changeable: False
+      doc: 
+      required: False
+      tags:
+        - metacloud
+        - nova_common
+    role_defaults_other_string_var:
+      type: str
+      version_added: 4.1.4
+      ops_changeable: True
+      customer_changeable: False
+      doc: 
+      required: False
+      tags:
+        - metacloud
+        - nova_common
+    role_defaults_other_int_var:
+      type: int
+      version_added: 4.1.4
+      ops_changeable: True
+      customer_changeable: False
+      doc: 
+      required: False
+      tags:
+        - metacloud
+        - nova_common

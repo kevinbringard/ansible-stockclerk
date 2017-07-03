@@ -56,6 +56,14 @@ def open_file(filename, mode='r'):
 def get_assert(var, var_data):
     if var_data['type'] == 'bool':
         return _bool_assert(var)
+    if var_data['type'] == 'map':
+        return _dict_assert(var)
+    if var_data['type'] == 'seq':
+        return _list_assert(var)
+    if var_data['type'] == 'str':
+        return _string_assert(var)
+    if var_data['type'] in ['int', 'float']:
+        return _number_assert(var)
 
 
 def _defined_assert(var):
@@ -74,6 +82,58 @@ def _bool_assert(var):
             'msg': msg,
         },
         'tags': ['assert'],
+    }
+
+
+def _dict_assert(var):
+    is_dict = '{} | is_dict'.format(var)
+    msg = '"{}" must be of type dict'.format(var)
+
+    return {
+        'assert': {
+            'that': is_dict,
+            'msg': msg,
+        },
+        'tags': ['assert'],
+    }
+
+
+def _list_assert(var):
+    is_list = '{} | is_list'.format(var)
+    msg = '"{}" must be of type list'.format(var)
+
+    return {
+        'assert': {
+            'that': is_list,
+            'msg': msg,
+        },
+        'tags': ['assert'],
+    }
+
+
+def _string_assert(var):
+    is_string = '{} | is_string'.format(var)
+    msg = '"{}" must be of type string'.format(var)
+
+    return {
+        'assert': {
+            'that': is_string,
+            'msg': msg,
+        },
+        'tags': ['assert'],
+    }
+
+
+def _number_assert(var):
+    is_number = '{} | is_number'.format(var)
+    msg = '"{}" must be of type int'.format(var)
+
+    return {
+        'assert': {
+            'that': is_number,
+            'msg': msg,
+        },
+        'tags': ['assert']
     }
 
 
