@@ -1,0 +1,36 @@
+---
+- assert:
+    msg: '"role_defaults_other_int_var" must be of type int'
+    that: role_defaults_other_int_var | is_number
+  tags:
+    - assert
+- assert:
+    msg: '"role_defaults_other_var" must be of type bool'
+    that: role_defaults_other_var | is_bool
+  tags:
+    - assert
+- assert:
+    msg: '"role_defaults_other_list_var" must be of type list'
+    that: role_defaults_other_list_var | is_list
+  tags:
+    - assert
+- assert:
+    msg: '"role_defaults_other_string_var" must be of type string'
+    that: role_defaults_other_string_var | is_string
+  tags:
+    - assert
+- assert:
+    msg: '"role_defaults_other_ipaddr_invalid_var" must be of type ipaddr'
+    that: role_defaults_other_ipaddr_invalid_var | is_ipaddr
+  tags:
+    - assert
+- assert:
+    msg: '"role_defaults_other_ipaddr_valid_var" must be of type ipaddr'
+    that: role_defaults_other_ipaddr_valid_var | is_ipaddr
+  tags:
+    - assert
+- assert:
+    msg: '"role_defaults_other_hash_var" must be of type dict'
+    that: role_defaults_other_hash_var | is_dict
+  tags:
+    - assert

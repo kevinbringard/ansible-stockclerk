@@ -30,11 +30,13 @@ def is_true(var):
 def is_false(var):
     return var in ['no', 'off', '0', 'false', 0, 'False', False]
 
+
 def is_dict(var):
     if isinstance(var, dict):
         return True
     else:
         return False
+
 
 def is_list(var):
     if isinstance(var, list):
@@ -42,11 +44,13 @@ def is_list(var):
     else:
         return False
 
+
 def is_set(var):
     if isinstance(var, set):
         return True
     else:
         return False
+
 
 def is_number(var):
     if isinstance(var, (int, long, float, complex)):
@@ -54,11 +58,26 @@ def is_number(var):
     else:
         return False
 
+
 def is_string(var):
     if isinstance(var, basestring):
         return True
     else:
         return False
+
+
+def is_ipaddr(var):
+    ip = var.split('.')
+    if len(ip) != 4:
+        return False
+    for octet in ip:
+        if not octet.isdigit():
+            return False
+    digit = int(octet)
+    if digit < 0 or digit > 255:
+        return False
+    return True
+
 
 class FilterModule(object):
     def filters(self):
@@ -69,4 +88,5 @@ class FilterModule(object):
             'is_set': is_set,
             'is_number': is_number,
             'is_string': is_string,
+            'is_ipaddr': is_ipaddr,
         }
