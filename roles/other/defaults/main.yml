@@ -8,4 +8,4 @@ role_defaults_other_list_var:
   - item2
 role_defaults_other_string_var: 'somestring'
 role_defaults_other_int_var: 4
-role_defaults_other_ipaddr_valid_var: "10.255.255.1"
+role_defaults_other_ipaddr_valid_var: 10.255.255.1
