@@ -65,6 +65,8 @@ def get_assert(var, var_data):
         return _string_assert(var)
     if var_data['type'] in ['int', 'float']:
         return _number_assert(var)
+    if var_data['type'] == 'ipaddr':
+        return _ipaddr_assert(var)
 
 
 def _defined_assert(var):
@@ -138,13 +140,24 @@ def _number_assert(var):
     }
 
 
-model_file = os.path.expanduser(
-    '~/git/ansible-systems/inventory/fusion/metapod/model/metapod.yml')
-model_dict = safe_load_file(model_file)
+def _ipaddr_assert(var):
+    is_ipaddr = '{} | is_ipaddr'.format(var)
+    msg = '"{}" must be of type ipaddr'.format(var)
+
+    return {
+        'assert': {
+            'that': is_ipaddr,
+            'msg': msg,
+        },
+        'tags': ['assert']
+    }
+
+
+model_dict = safe_load_file('model/model.yml')
 data = [
     get_assert(var, var_data)
     for var, var_data in model_dict['groupvars']['all'].items()
 ]
 assert_file = os.path.expanduser(
-    '~/git/ansible-systems/playbooks/openstack/metapod/assert_generated.yml')
+    '~/git/ansible-stockclerk/playbooks/assert_generated.yml')
 write_file(assert_file, safe_dump(data))

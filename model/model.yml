@@ -71,3 +71,13 @@ groupvars:
       tags:
         - metacloud
         - nova_common
+    role_defaults_other_ipaddr_valid_var:
+      type: ipaddr
+      version_added: 4.1.4
+      ops_changeable: True
+      customer_changeable: False
+      doc: 
+      required: False
+      tags:
+        - metacloud
+        - nova_common
