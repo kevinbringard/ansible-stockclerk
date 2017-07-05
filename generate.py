@@ -159,5 +159,5 @@ data = [
     for var, var_data in model_dict['groupvars']['all'].items()
 ]
 assert_file = os.path.expanduser(
-    '~/git/ansible-systems/playbooks/openstack/metapod/assert_generated.yml')
+    '~/git/ansible-stockclerk/playbooks/assert_generated.yml')
 write_file(assert_file, safe_dump(data))

@@ -20,11 +20,6 @@
   tags:
     - assert
 - assert:
-    msg: '"role_defaults_other_ipaddr_invalid_var" must be of type ipaddr'
-    that: role_defaults_other_ipaddr_invalid_var | is_ipaddr
-  tags:
-    - assert
-- assert:
     msg: '"role_defaults_other_ipaddr_valid_var" must be of type ipaddr'
     that: role_defaults_other_ipaddr_valid_var | is_ipaddr
   tags:

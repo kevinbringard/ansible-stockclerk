@@ -9,4 +9,3 @@ role_defaults_other_list_var:
 role_defaults_other_string_var: 'somestring'
 role_defaults_other_int_var: 4
 role_defaults_other_ipaddr_valid_var: "10.255.255.1"
-role_defaults_other_ipaddr_invalid_var: "10.256.255.1"

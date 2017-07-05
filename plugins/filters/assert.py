@@ -73,9 +73,9 @@ def is_ipaddr(var):
     for octet in ip:
         if not octet.isdigit():
             return False
-    digit = int(octet)
-    if digit < 0 or digit > 255:
-        return False
+        digit = int(octet)
+        if digit < 0 or digit > 255:
+            return False
     return True
 
 
