@@ -18,8 +18,12 @@
 #  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 #  DEALINGS IN THE SOFTWARE.
 
+import argparse 
+
 import contextlib
 import os
+
+import re
 
 import yaml
 
@@ -67,6 +71,26 @@ def get_assert(var, var_data):
         return _number_assert(var)
     if var_data['type'] == 'ipaddr':
         return _ipaddr_assert(var)
+
+
+def read_config(config):
+    config_dict = safe_load_file(config)
+    return config_dict
+
+
+def expandvars(path):
+    if isinstance(path, str):
+        return re.sub(r'(?<!\\)\$[A-Za-z_][A-Za-z0-9_]*', '',
+                      os.path.expandvars(path))
+
+    return path
+
+
+def normalize_tags(tags):
+    if isinstance(tags, str):
+        return re.split(';|,|\*|\-|\s+', tags)
+
+    return tags
 
 
 def _defined_assert(var):
@@ -153,11 +177,27 @@ def _ipaddr_assert(var):
     }
 
 
-model_dict = safe_load_file('model/model.yml')
-data = [
-    get_assert(var, var_data)
-    for var, var_data in model_dict['groupvars']['all'].items()
-]
-assert_file = os.path.expanduser(
-    '~/git/ansible-stockclerk/playbooks/assert_generated.yml')
+
+
+# Create an arg paser object to load the config file
+parser = argparse.ArgumentParser(description='Load stockclerk config file')
+parser.add_argument('-c', '--config', help='Config file to load',
+                    action='store', required=True)
+args = parser.parse_args()
+config_dict = read_config(args.config)
+
+model_dict = safe_load_file(os.path.abspath(expandvars(
+    config_dict['model_path'])))
+
+data = []
+tags = config_dict['tags']
+
+for var, var_data in model_dict['groupvars']['all'].items():
+    for tag in var_data['tags']:
+        if tag in tags:
+            data.append(get_assert(var, var_data))
+
+assert_file = os.path.expanduser(expandvars(
+    config_dict['assert_file']))
+#    '~/git/ansible-stockclerk/playbooks/assert_generated.yml')
 write_file(assert_file, safe_dump(data))
